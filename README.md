@@ -1,4 +1,4 @@
-# 🚀 Heloisa Gomes - Portfólio de Projetos
+# Heloisa Gomes - Portfólio de Projetos
 
 Olá! Este repositório reúne meus projetos de desenvolvimento web criados durante meus estudos em **Desenvolvimento de Software Multiplataforma** (Fatec Registro).
 
