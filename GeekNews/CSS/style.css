@@ -1,0 +1,755 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: Verdana, "Geneva", Tahoma, sans-serif;
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #EAA510;
+    position: relative;
+}
+
+/* CABEÇALHO PRINCIPAL */
+.cabecalho {
+    width: 100%;
+    height: 15vh;
+    background-color: #8b0101;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.logo {
+    font-family: "Just Another Hand", cursive;
+    font-size: 3rem;
+    color: #ffffff;
+}
+
+.menu {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    font-family: Verdana, sans-serif;
+    font-size: 1.5rem;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #EAA510;
+}
+
+/* PÁGINA INICIAL */
+.paginainicial {
+    width: 100%;
+    height: 85vh;
+    background-image: url(../imgs/cicatriz.png);
+    background-size: cover;
+    background-color: #a01212;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paginainicial::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #CA724A;
+    opacity: 0.7;
+}
+
+.p-centraliza {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.p-centraliza img {
+    width: 50rem;
+    height: auto;
+    max-width: 100%;
+}
+
+/* CABEÇALHO SECUNDÁRIO */
+.cabecalho2 {
+    padding: 50px;
+    background-color: #a01212;
+}
+
+.boasvindas {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-family: "Della Respira", serif;
+    text-align: center;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.conteudoprincipal {
+    width: 100%;
+    min-height: 85vh;
+    background-color: #EAA510;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.coluna1 {
+    width: 50%;
+    height: 100%;
+    background-color: #EAA510;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.coluna2 {
+    width: 50%;
+    height: 100%;
+    background-color: #EAA510;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* TÍTULOS E TEXTOS */
+.introducao, .sinopse, .autor, .personagens {
+    font-size: 1.5rem;
+    margin: 30px;
+    color: #a01212;
+    text-align: left;
+    font-family: "Della Respira", serif;
+}
+
+.corpo {
+    font-size: 1rem;
+    text-align: justify;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    line-height: 1.5;
+    color: #080808;
+    width: 90%;
+}
+
+/* TABELA DE PERSONAGENS */
+.tabela {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #EAA510;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tabela td {
+    padding: 12px;
+    border-bottom: 1px solid #a01212;
+    text-align: center;
+    width: 80%;
+}
+
+.tabela tr:hover {
+    background-color: rgba(139, 1, 1, 0.1);
+}
+
+.tabela img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #a01212;
+}
+
+.nomepersonagem {
+    font-weight: bold;
+    color: #000000;
+    font-family: "Della Respira", serif;
+}
+
+.funcao {
+    font-style: italic;
+    color: #a01212;
+}
+
+/* DESCRIÇÃO DE PERSONAGENS - CARROSSEL */
+.descricaopersonagem {
+    width: 100%;
+    min-height: 85vh;
+    background-color: #EAA510;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+/* CARROSSEL - PARTE CRÍTICA CORRIGIDA */
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: #f7bc3fa2;
+    padding: 20px;
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.descricaop.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: flex-start;
+    padding: 20px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.descricaop.slide.active {
+    opacity: 1;
+    position: relative;
+    display: flex;
+}
+
+/* CONTEÚDO DO SLIDE */
+.slide-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* CORREÇÃO DAS IMAGENS NO CARROSSEL */
+.descricaop.slide img {
+    width: 250px;
+    height: 375px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid #8b0101;
+    box-shadow: 0 4px 8px #000000;
+    flex-shrink: 0;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #8b0101;
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 10;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background-color: #8b0101;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+/* INDICADORES DO CARROSSEL - CORREÇÃO DO NOME DA CLASSE */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    background-color: #cccccc;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.indicator:hover {
+    background-color: #a01212;
+    transform: scale(1.2);
+}
+
+.indicator.active {
+    background-color: #8b0101;
+    transform: scale(1.2);
+}
+
+/* CONTEÚDO DO SLIDE */
+.nomep {
+    font-size: 1.8rem;
+    color: #8b0101;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: "Della Respira", serif;
+}
+
+.idadep {
+    font-size: 1.1rem;
+    color: #000000;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.passadop, .personalidadep, .habilidadesp {
+    border-left: 3px solid #8b0101;
+    padding: 15px;
+    background-color: #d3aa52a2;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #000000;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.descricaotitle {
+    color: #8b0101;
+    font-size: 1.7rem;
+    margin: 15px 0;
+    font-family: "Della Respira", serif;
+}
+
+/* SAGAS */
+.sagas {
+    width: 100%;
+    min-height: 85vh;
+    background-color: #EAA510;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.sagas  {
+    font-size: 3.6rem;
+    color: #a01212;
+    text-align: center;
+    width: 100%;
+}
+
+.titulopag{
+    font-size: 3.6rem;
+    margin: 30px;
+    color: #a01212;
+    text-align: center;
+    width: 100%;
+}
+
+.sagas h3 {
+    font-size: 3rem;
+    color: #000000;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: "Della Respira", serif;
+    padding-bottom: 15px;
+}
+
+/* TABELA DE SAGAS */
+.tabela3 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #f7bc3fa2;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tabela3 tr:hover {
+    background-color: rgba(139, 1, 1, 0.05);
+}
+
+.tabela3 td {
+    padding: 20px;
+    border-bottom: 2px solid #a01212;
+    text-align: left;
+    vertical-align: top;
+}
+
+.tabela3 img {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid #8b0101;
+}
+
+.descricaosaga {
+    font-size: 1.6rem;
+    text-align: justify;
+    margin-top: 20px;
+    margin-left: 20px;
+    line-height: 1.5;
+    color: #080808;
+    width: 90%;
+}
+
+.anos, .episodios {
+    font-size: 1.6rem;
+    color: #000000;
+    margin-left: 15px;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+/* RODAPÉ */
+.rodape {
+    width: 100%;
+    height: 15vh;
+    background-color: #8b0101;
+    color: #ffffff;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-text {
+    color: #ffffff;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.footer-text2 {
+    color: #ffffff;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 1200px) {
+    .sagas .titulopag {
+        font-size: 3rem;
+    }
+    
+    .sagas h3 {
+        font-size: 2.5rem;
+    }
+    
+    .tabela3 img {
+        width: 250px;
+        height: 350px;
+    }
+    
+    .descricaosaga {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .conteudoprincipal {
+        flex-direction: column;
+    }
+    
+    .coluna1, .coluna2 {
+        width: 100%;
+    }
+    
+    .descricaop.slide.active {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .descricaop.slide img {
+        width: 200px;
+        height: 300px;
+    }
+    
+    .sagas .titulopag {
+        font-size: 2.5rem;
+    }
+    
+    .sagas h3 {
+        font-size: 2rem;
+    }
+    
+    .tabela3 img {
+        width: 200px;
+        height: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cabecalho {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+    }
+    
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .menu a {
+        font-size: 1.2rem;
+    }
+    
+    .paginainicial {
+        height: 70vh;
+    }
+    
+    .p-centraliza img {
+        width: 20rem;
+    }
+    
+    .cabecalho2 {
+        padding: 30px;
+    }
+    
+    .boasvindas {
+        font-size: 1.5rem;
+    }
+    
+    .introducao, .sinopse, .autor, .personagens {
+        font-size: 1.3rem;
+        margin: 20px;
+        text-align: center;
+    }
+    
+    .corpo {
+        width: 95%;
+        margin-left: 0;
+        padding: 0 10px;
+        font-size: 0.9rem;
+    }
+    
+    .tabela {
+        width: 95%;
+        font-size: 0.9rem;
+    }
+    
+    .tabela img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    /* CARROSSEL MOBILE */
+    .descricaop.slide {
+        padding: 15px;
+        gap: 20px;
+    }
+    
+    .descricaop.slide.active {
+        flex-direction: column;
+    }
+    
+    .slide-content {
+        width: 100%;
+    }
+    
+    .nomep {
+        font-size: 1.5rem;
+    }
+    
+    .passadop, .personalidadep, .habilidadesp {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    
+    .descricaotitle {
+        font-size: 1.3rem;
+    }
+    
+    /* SAGAS MOBILE */
+    .sagas .titulopag {
+        font-size: 2rem;
+        margin: 20px;
+    }
+    
+    .sagas h3 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    
+    .tabela3 td {
+        display: block;
+        padding: 15px;
+    }
+    
+    .tabela3 img {
+        width: 100%;
+        height: 300px;
+        margin-bottom: 15px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .descricaosaga, .anos, .episodios {
+        font-size: 1rem;
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    /* BOTÕES DO CARROSSEL */
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 2rem;
+    }
+    
+    .p-centraliza img {
+        width: 15rem;
+    }
+    
+    .boasvindas {
+        font-size: 1.3rem;
+    }
+    
+    .tabela img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .descricaop.slide img {
+        width: 150px;
+        height: 225px;
+    }
+    
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        padding: 8px;
+        font-size: 1rem;
+    }
+    
+    .prev-btn {
+        left: 10px;
+    }
+    
+    .next-btn {
+        right: 10px;
+    }
+    
+    .sagas .titulopag {
+        font-size: 1.8rem;
+    }
+    
+    .sagas h3 {
+        font-size: 1.5rem;
+    }
+    
+    .tabela3 img {
+        height: 250px;
+    }
+    
+    .rodape {
+        height: auto;
+        padding: 15px;
+    }
+    
+    .footer-text, .footer-text2 {
+        font-size: 0.9rem;
+    }
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.descricaop.slide.active {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* SCROLL SUAVE */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ESTILOS PARA LINKS */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ESTILOS PARA BOTÕES */
+button {
+    cursor: pointer;
+    outline: none;
+}
+
+/* ESTILOS PARA TEXTO SELECIONADO */
+::selection {
+    background-color: #EAA510;
+    color: white;
+}
